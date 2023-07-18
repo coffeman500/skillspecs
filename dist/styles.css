@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+#infernalCape {
+    max-width: 50px;
+    position: absolute;
+    transition: opacity ease 1s;
+    opacity: 0;
+}
+.bytag {
+    font-size: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
