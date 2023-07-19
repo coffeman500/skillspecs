@@ -15,9 +15,3 @@ body {
     transition: opacity ease 1s;
     opacity: 0;
 }
-.bytag {
-    font-size: 10px;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-}
