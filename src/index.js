@@ -46,18 +46,18 @@ function ini() {
     cape.yini = cape.y;
     updateCapePosition();
 
+    $(window).on("mousemove", (e) => {
+        mouse.x = e.pageX;
+        mouse.y = e.pageY;
+    });
+
+    window.setInterval(() => {
+        proximitySensor();
+        updateCapePosition();
+    }, 10);
+
     $('#infernalCape').css('opacity', 1);
 }
-
-$(window).on("mousemove", (e) => {
-    mouse.x = e.pageX;
-    mouse.y = e.pageY;
-});
-
-window.setInterval(() => {
-    proximitySensor();
-    updateCapePosition();
-}, 10);
 
 function proximitySensor() {
     
@@ -72,8 +72,11 @@ function proximitySensor() {
         let capeRatioX = (cape.x - mouse.x) / Math.abs(cape.y - mouse.y);
         let capeRatioY = (cape.y - mouse.y) / Math.abs(cape.x - mouse.x);
 
-        cape.v.x = config.velocityFunction(capeRatioX, mouseDistancePerc);
-        cape.v.y = config.velocityFunction(capeRatioY, mouseDistancePerc);
+        let capeVX = config.velocityFunction(capeRatioX, mouseDistancePerc);
+        let capeVY = config.velocityFunction(capeRatioY, mouseDistancePerc);
+        
+        cape.v.x = capeVX;
+        cape.v.y = capeVY;
 
     }
 
